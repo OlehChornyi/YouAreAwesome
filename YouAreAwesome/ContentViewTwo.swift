@@ -57,19 +57,21 @@ struct ContentViewTwo: View {
                 let messages = ["You are awesome!",
                                 "You are great!",
                                 "You are fantastic!",]
-                messageString = messages[messageNumber]
-                messageNumber += 1
-                if messageNumber == messages.count {
-                    messageNumber = 0
-                }
+                messageString = messages[Int.random(in: 0...messages.count-1)]
+                imageName = "Image\(Int.random(in: 0...1))"
+//                messageString = messages[messageNumber]
+//                messageNumber += 1
+//                if messageNumber == messages.count {
+//                    messageNumber = 0
+//                }
                 
                 //TODO: update the imageName variable
-                imageName = "Image\(imageNumber)"
-                imageNumber += 1
-                if imageNumber > 1 {
-                    imageNumber = 0
-                }
-                print(imageNumber)
+//                imageName = "Image\(imageNumber)"
+//                imageNumber += 1
+//                if imageNumber > 1 {
+//                    imageNumber = 0
+//                }
+//                print(imageNumber)
             }
             .buttonStyle(.borderedProminent)
             
