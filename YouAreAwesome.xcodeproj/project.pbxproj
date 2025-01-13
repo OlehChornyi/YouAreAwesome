@@ -11,6 +11,7 @@
 		FC7DC2E02D2D47BA00C423C8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7DC2DF2D2D47BA00C423C8 /* ContentView.swift */; };
 		FC7DC2E22D2D47BE00C423C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC7DC2E12D2D47BE00C423C8 /* Assets.xcassets */; };
 		FC7DC2E52D2D47BE00C423C8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC7DC2E42D2D47BE00C423C8 /* Preview Assets.xcassets */; };
+		FC7DC3062D352BEE00C423C8 /* ContentViewTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7DC3052D352BED00C423C8 /* ContentViewTwo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		FC7DC2DF2D2D47BA00C423C8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		FC7DC2E12D2D47BE00C423C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FC7DC2E42D2D47BE00C423C8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		FC7DC3052D352BED00C423C8 /* ContentViewTwo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewTwo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +55,7 @@
 			children = (
 				FC7DC2DD2D2D47BA00C423C8 /* YouAreAwesomeApp.swift */,
 				FC7DC2DF2D2D47BA00C423C8 /* ContentView.swift */,
+				FC7DC3052D352BED00C423C8 /* ContentViewTwo.swift */,
 				FC7DC2E12D2D47BE00C423C8 /* Assets.xcassets */,
 				FC7DC2E32D2D47BE00C423C8 /* Preview Content */,
 			);
@@ -137,6 +140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC7DC3062D352BEE00C423C8 /* ContentViewTwo.swift in Sources */,
 				FC7DC2E02D2D47BA00C423C8 /* ContentView.swift in Sources */,
 				FC7DC2DE2D2D47BA00C423C8 /* YouAreAwesomeApp.swift in Sources */,
 			);

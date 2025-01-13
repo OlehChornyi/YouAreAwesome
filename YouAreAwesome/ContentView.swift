@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var messageString = "Namaste"
+    @State private var imageName = ""
     
     var body: some View {
         
@@ -29,26 +30,28 @@ struct ContentView: View {
 //                        .background(Color("SkyBlue"))
 //                        .cornerRadius(15)
                     Spacer()
-                    
-                    Image(systemName: "cloud.sun.rain.fill")
-                        .resizable()
-                        .scaledToFit()
-//                        .scaledToFill()
-//                        .foregroundColor(.pink)
-//                        .symbolRenderingMode(.hierarchical)
-//                        .foregroundColor(.orange)
-//                        .symbolRenderingMode(.palette)
-//                        .foregroundStyle(.black, .blue)
-                        .symbolRenderingMode(.multicolor)
-                        .background(.gray)
-//                        .cornerRadius(30)
-                        .clipShape(Circle())
-                        .shadow(radius: 30, x: 20, y: 20)
-                        .overlay(
-                            Circle()
-                                .stroke(.red, lineWidth: 5)
-                        )
-                    
+//                    
+//                    Image(systemName: "cloud.sun.rain.fill")
+//                        .resizable()
+//                        .scaledToFit()
+////                        .scaledToFill()
+////                        .foregroundColor(.pink)
+////                        .symbolRenderingMode(.hierarchical)
+////                        .foregroundColor(.orange)
+////                        .symbolRenderingMode(.palette)
+////                        .foregroundStyle(.black, .blue)
+//                        .symbolRenderingMode(.multicolor)
+//                        .background(.gray)
+////                        .cornerRadius(30)
+//                        .clipShape(Circle())
+//                        .shadow(radius: 30, x: 20, y: 20)
+//                        .overlay(
+//                            Circle()
+//                                .stroke(.red, lineWidth: 5)
+//                        )
+//                        )
+//                        )
+//                    
                     Text(messageString)
                         .font(.largeTitle)
                         .fontWeight(.heavy)
