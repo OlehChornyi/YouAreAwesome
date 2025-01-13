@@ -10,22 +10,14 @@ import SwiftUI
 struct ContentViewTwo: View {
     @State private var messageString = ""
     @State private var imageName = ""
-    @State private var imageNumber = 0
-    @State private var messageNumber = 0
+//    @State private var imageNumber = 0
+//    @State private var messageNumber = 0
+    @State private var lastMessageNumber = -1
+    @State private var lastImageNumber = -1
     
     var body: some View {
         VStack{
             
-            Image(imageName)
-                .resizable()
-                .scaledToFit()
-                .cornerRadius(30)
-                .shadow(radius: 30)
-                .padding()
-            
-            Spacer()
-            
-
             Text(messageString)
                 .font(.largeTitle)
                 .fontWeight(.heavy)
@@ -35,6 +27,13 @@ struct ContentViewTwo: View {
                 .padding()
                 .frame(height: 150)
                 .frame(maxWidth: .infinity)
+            
+            Image(imageName)
+                .resizable()
+                .scaledToFit()
+                .cornerRadius(30)
+                .shadow(radius: 30)
+                .padding()
             
             Spacer()
             
@@ -57,8 +56,24 @@ struct ContentViewTwo: View {
                 let messages = ["You are awesome!",
                                 "You are great!",
                                 "You are fantastic!",]
-                messageString = messages[Int.random(in: 0...messages.count-1)]
-                imageName = "Image\(Int.random(in: 0...1))"
+//                messageString = messages[Int.random(in: 0...messages.count-1)]
+                
+                var messageNumber = Int.random(in: 0...messages.count-1)
+                while messageNumber == lastMessageNumber {
+                    messageNumber = Int.random(in: 0...messages.count-1)
+                }
+                messageString = messages[messageNumber]
+                lastMessageNumber = messageNumber
+                
+//                imageName = "Image\(Int.random(in: 0...1))"
+                
+                var imageNumber = Int.random(in: 0...1)
+                while imageNumber == lastImageNumber {
+                    imageNumber = Int.random(in: 0...1)
+                }
+                imageName = "Image\(imageNumber)"
+                lastImageNumber = imageNumber
+                
 //                messageString = messages[messageNumber]
 //                messageNumber += 1
 //                if messageNumber == messages.count {
