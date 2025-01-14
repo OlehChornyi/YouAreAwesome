@@ -15,6 +15,7 @@ struct ContentViewThree: View {
     @State private var lastImageNumber = -1
     @State private var lastSoundNumber = -1
     @State private var audioPlayer: AVAudioPlayer!
+    @State private var soundIsOn = true
     
     var body: some View {
         VStack{
@@ -38,25 +39,39 @@ struct ContentViewThree: View {
             
             Spacer()
             
-            Button("Show Message") {
+            HStack {
+                Text("Sound On:")
+                Toggle("", isOn: $soundIsOn)
+                    .labelsHidden()
+                    .onChange(of: soundIsOn) {_ in
+                        if audioPlayer != nil && audioPlayer.isPlaying {
+                            audioPlayer.stop()
+                        }
+                    }
                 
-                let messages = ["You are awesome!",
-                                "You are great!",
-                                "You are fantastic!",]
+                Spacer()
                 
-                lastMessageNumber = nonRepeatingRandom(lastNumber: lastMessageNumber, upperBound: messages.count-1)
-                messageString = messages[lastMessageNumber]
-                
-                
-                lastImageNumber = nonRepeatingRandom(lastNumber: lastImageNumber, upperBound: 9)
-                imageName = "Image\(lastImageNumber)"
-                
-                lastSoundNumber = nonRepeatingRandom(lastNumber: lastSoundNumber, upperBound: 5)
-                let soundName = "sound\(lastSoundNumber)"
-                
-                playSound(soundName: soundName)
+                Button("Show Message") {
+                    
+                    let messages = ["You are awesome!",
+                                    "You are great!",
+                                    "You are fantastic!",]
+                    
+                    lastMessageNumber = nonRepeatingRandom(lastNumber: lastMessageNumber, upperBound: messages.count-1)
+                    messageString = messages[lastMessageNumber]
+                    
+                    
+                    lastImageNumber = nonRepeatingRandom(lastNumber: lastImageNumber, upperBound: 1)
+                    imageName = "Image\(lastImageNumber)"
+                    
+                    lastSoundNumber = nonRepeatingRandom(lastNumber: lastSoundNumber, upperBound: 5)
+                    let soundName = "sound\(lastSoundNumber)"
+                    if soundIsOn {
+                        playSound(soundName: soundName)
+                    }
+                }
+                .buttonStyle(.borderedProminent)
             }
-            .buttonStyle(.borderedProminent)
             
         }
         .padding()
