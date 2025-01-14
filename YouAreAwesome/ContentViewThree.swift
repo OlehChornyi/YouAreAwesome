@@ -44,47 +44,44 @@ struct ContentViewThree: View {
                                 "You are great!",
                                 "You are fantastic!",]
                 
-                var messageNumber = Int.random(in: 0...messages.count-1)
-                while messageNumber == lastMessageNumber {
-                    messageNumber = Int.random(in: 0...messages.count-1)
-                }
-                messageString = messages[messageNumber]
-                lastMessageNumber = messageNumber
+                lastMessageNumber = nonRepeatingRandom(lastNumber: lastMessageNumber, upperBound: messages.count-1)
+                messageString = messages[lastMessageNumber]
                 
                 
-                var imageNumber = Int.random(in: 0...1)
-                while imageNumber == lastImageNumber {
-                    imageNumber = Int.random(in: 0...1)
-                }
-                imageName = "Image\(imageNumber)"
-                lastImageNumber = imageNumber
+                lastImageNumber = nonRepeatingRandom(lastNumber: lastImageNumber, upperBound: 9)
+                imageName = "Image\(lastImageNumber)"
                 
-                var soundNumber: Int
-                repeat {
-                    soundNumber = Int.random(in: 0...5)
-                } while soundNumber == lastSoundNumber 
-                lastSoundNumber = soundNumber
-                let soundName = "sound\(soundNumber)"
+                lastSoundNumber = nonRepeatingRandom(lastNumber: lastSoundNumber, upperBound: 5)
+                let soundName = "sound\(lastSoundNumber)"
                 
-                
-                guard let soundFile = NSDataAsset(name: soundName) else {
-                    print("🤬 Could not read file named \(soundName)")
-                    return
-                }
-                
-                do {
-                    audioPlayer = try AVAudioPlayer(data: soundFile.data)
-                    audioPlayer.play()
-                } catch {
-                    print("🤬 ERROR: \(error.localizedDescription)")
-                }
-                
-                
+                playSound(soundName: soundName)
             }
             .buttonStyle(.borderedProminent)
             
         }
         .padding()
+    }
+    
+    func nonRepeatingRandom(lastNumber: Int, upperBound: Int) -> Int {
+        var newNumber: Int
+        repeat {
+            newNumber = Int.random(in: 0...upperBound)
+        } while newNumber == lastNumber
+        return newNumber
+    }
+    
+    func playSound(soundName: String) {
+        guard let soundFile = NSDataAsset(name: soundName) else {
+            print("🤬 Could not read file named \(soundName)")
+            return
+        }
+        
+        do {
+            audioPlayer = try AVAudioPlayer(data: soundFile.data)
+            audioPlayer.play()
+        } catch {
+            print("🤬 ERROR: \(error.localizedDescription)")
+        }
     }
 }
 
