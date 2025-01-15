@@ -29,6 +29,7 @@ struct ContentViewThree: View {
                 .padding()
                 .frame(height: 150)
                 .frame(maxWidth: .infinity)
+                .animation(.easeInOut(duration: 0.15), value: messageString)
             
             Image(imageName)
                 .resizable()
@@ -36,6 +37,7 @@ struct ContentViewThree: View {
                 .cornerRadius(30)
                 .shadow(radius: 30)
                 .padding()
+                .animation(.default, value: messageString)
             
             Spacer()
             
@@ -72,6 +74,7 @@ struct ContentViewThree: View {
                 }
                 .buttonStyle(.borderedProminent)
             }
+            .tint(.accentColor)
             
         }
         .padding()
